@@ -1,0 +1,42 @@
+__author__ = 'dongminghao'
+#coding:utf-8
+import xlwt
+
+class Mylibrary():
+    def FILE(self,filename,jine,bank,bankname,bankID):
+        """上传报盘文件 参数：报盘文件名称，金额，银行名称，账户名称
+            账户ID
+        """
+        book=xlwt.Workbook()
+        sheet=book.add_sheet('new',cell_overwrite_ok=True)
+        sheet.write(0,0,u'交易提交时间')
+        sheet.write(0,1,u'交易流水')
+        sheet.write(0,2,u'文件明细号')
+        sheet.write(0,3,u'业务类型')
+        sheet.write(0,4,u'文件名')
+        sheet.write(0,5,u'金额')
+        sheet.write(0,6,u'开户行')
+        sheet.write(0,7,u'账户名称')
+        sheet.write(0,8,u'账户')
+        sheet.write(0,9,u'交易状态')
+        sheet.write(0,10,u'返回附言')
+        sheet.write(0,11,u'企业流水号')
+        sheet.write(0,12,u'备注')
+        sheet.write(0,13,u'手机号码')
+
+        for i in range(1,int(jine)/50000+1):
+            sheet.write(i,0,u'2014-12-11 11:21:52')
+            sheet.write(i,1,u'512152607166')
+            sheet.write(i,2,u'000004')
+            sheet.write(i,3,u'批量')
+            sheet.write(i,4,filename[:-4])
+            sheet.write(i,5,50000)
+            sheet.write(i,6,bank)
+            sheet.write(i,7,bankname)
+            sheet.write(i,8,bankID)
+            sheet.write(i,9,u'商户已复核,交易成功')
+            sheet.write(i,10,u'成功')
+            sheet.write(i,11,u'11111')
+            sheet.write(i,12,u'成功')
+            sheet.write(i,13,u'123')
+        book.save('d:\\'+filename[:-4]+'.xls')
