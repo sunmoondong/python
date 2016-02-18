@@ -1,0 +1,29 @@
+__author__ = 'dongminghao'
+#coding:utf-8
+from xlsxwriter.workbook import Workbook
+
+class Hkfile():
+    def FILEHK(self,amounthk,bankname,bankID):
+        """上传报盘文件 参数：金额，账户名称，账户ID"""
+
+        workbook = Workbook('demo.xlsx')
+        worksheet = workbook.add_worksheet()
+
+        worksheet.write(1,2,u'招商银行个人银行专业版')
+        worksheet.write(2,4,u'时间：20140819')
+        worksheet.write(5,1,u'转出账号')
+        worksheet.write(6,1,'811101')
+        worksheet.write(5,2,u'金额')
+        worksheet.write(6,2,amounthk)
+        worksheet.write(5,3,u'收款方户名')
+        worksheet.write(6,3,bankname)
+        worksheet.write(5,4,u'收款方账号')
+        worksheet.write(6,4,bankID)
+        worksheet.write(5,5,u'银行返回信息')
+        worksheet.write(6,5,u'汇出，手续费: 0.00 元。')
+        worksheet.write(5,6,u'查询号码')
+
+        workbook.close()
+
+    # FILEHK('3333',48.5,u'董冠成','81100')
+
