@@ -1,0 +1,13 @@
+
+class ReadLine():
+    def READ_line_txt(self,adds):
+      f=open(adds,'r')
+      # while True:
+      #     line=f.readline()
+      #     if line:
+      #         print line,
+      #     else:
+      #         break
+      for i  in  f.readlines():
+          print i.strip('\n')
+      f.close()
